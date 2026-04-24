@@ -1,4 +1,3 @@
-#include "../common/calcul/calcul.h"
 #include "../common/type.h"
 #include <stdlib.h>
 

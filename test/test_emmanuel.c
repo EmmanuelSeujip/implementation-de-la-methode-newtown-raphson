@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../common/type.h"
-#include "../common/intervalle/intervalle.h"
-#include "../methods/newton.c"
+#include "../methods/newton.h"
+
 Polynome creer_polynome_test() {
     // Création des monômes : -2 (exp=0), -x (exp=1), x^3 (exp=3)
     

@@ -1,13 +1,17 @@
 // Importation des fichiers d'en-tête nécessaires
-#include "calcul.h"
-#include "../type.h"
+#include "./type.h"
 
 // Importation des bibliothèques standard
 #include <math.h>
 #include <stdlib.h>
 
 //Importation des fichiers utilitaires
-#include "../../utils/free_polynome.c"
+#include "../utils/free_polynome.h"
+
+#ifndef CALCUL_H
+#define CALCUL_H
+
+
 
 Resultat p_de_x(Polynome p, float x) {
     Resultat res = {0.0, 0};
@@ -70,3 +74,5 @@ Polynome derivee_seconde(Polynome p) {
     
     return p_seconde;
 }
+
+#endif // CALCUL_H

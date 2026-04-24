@@ -12,5 +12,9 @@ typedef struct NoedPolynome{
     struct NoedPolynome* suiv;
 }NoedPolynome, *Polynome;
 
+typedef struct Intervalle{
+    double a;
+    double b;
+}Intervalle;
 
 #endif // TYPE_H
