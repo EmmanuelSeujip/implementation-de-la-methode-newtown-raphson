@@ -8,7 +8,7 @@ typedef struct Resultat{
 
 typedef struct NoedPolynome{
     float coeff;
-    float exp;
+    int exp;
     struct NoedPolynome* suiv;
 }NoedPolynome, *Polynome;
 
