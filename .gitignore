@@ -1,0 +1,12 @@
+test
+*.o
+*.obj
+*.so
+*.a
+*.la
+*.lo
+
+/main
+/mon_evaluateur
+/save
+/parse/intervalle/mon_compilateur
