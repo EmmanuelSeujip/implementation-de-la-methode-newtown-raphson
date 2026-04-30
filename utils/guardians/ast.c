@@ -17,6 +17,8 @@ Noeud* new_node(NodeType t, double v, Noeud* g, Noeud* d) {
     return n;
 }
 
+
+
 /* --- Évaluateur --- */
 double evaluer(const Fonction a, double x) {
     if (!a) return 0.0;
