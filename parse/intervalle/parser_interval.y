@@ -31,6 +31,8 @@
 
 entree: S ;
 
+
+
 /* Nouvelle règle intermédiaire */
 nombre
     : NUMBER          { $$ = $1; }
