@@ -1,12 +1,6 @@
 #ifndef SIMPLE_H
 #define SIMPLE_H
 
-typedef struct NoedPolynome{
-    float coeff;
-    int exp;
-    struct NoedPolynome* suiv;
-}NoedPolynome, *Polynome;
-
 typedef struct {
     double r;    /* partie réelle          → f(x)   */
     double e_1;   /* coefficient de ε₁      → f'(x)  */

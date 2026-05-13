@@ -75,9 +75,7 @@ void yyerror(const char *s) {
     fprintf(stderr, "Erreur de syntaxe : %s\n", s);
 }
 
-/* =========================================================
- * La fonction appelée par votre code mère
- * ========================================================= */
+
 Fonction parse_expression(const char* expr_str) {
     fonction_resultat = NULL; // Réinitialisation par sécurité
     
