@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <math.h>
 
-/* --- Constructeur générique --- */
 Noeud* new_node(NodeType t, double v, Noeud* g, Noeud* d) {
     Noeud* n = (Noeud*)malloc(sizeof(Noeud));
     if (!n) { 
@@ -17,12 +16,6 @@ Noeud* new_node(NodeType t, double v, Noeud* g, Noeud* d) {
     return n;
 }
 
-
-
-/* --- Évaluateur --- */
-
-
-/* --- Libération mémoire --- */
 void free_tree(Fonction a) {
     if (!a) return;
     free_tree(a->gauche); // Appels récursifs pour libérer les enfants
