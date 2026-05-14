@@ -1,4 +1,4 @@
-#include "../type/fonction.h"
+#include "tree.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>

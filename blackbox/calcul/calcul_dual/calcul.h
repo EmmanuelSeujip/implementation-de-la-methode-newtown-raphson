@@ -1,7 +1,7 @@
 // Importations nécessaires
-#include "dual.h"
-#include "../../utils/type/simple.h"
-#include "../../utils/type/fonction.h"
+#include "../dual/dual.h"
+#include "../../../utils/type/simple.h"
+#include "../../../utils/type/fonction.h"
 
 #ifndef CALCUL_H
 #define CALCUL_H

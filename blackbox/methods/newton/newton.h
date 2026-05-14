@@ -1,5 +1,5 @@
-#include "../../utils/type/fonction.h"
-#include "../../utils/type/intervalle.h"
+#include "../../../utils/type/fonction.h"
+#include "../../../utils/type/intervalle.h"
 
 
 #ifndef NEWTON_H

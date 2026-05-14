@@ -1,33 +1,33 @@
 #include <math.h>
 #include "dual.h"
 
-static HyperDual hd_const(double v) {
+HyperDual hd_const(double v) {
     return (HyperDual){ v, 0, 0, 0 };
 }
 
-static HyperDual hd_var(double x0) {
+HyperDual hd_var(double x0) {
     return (HyperDual){ x0, 1, 1, 0 };
 }
 
-static HyperDual hd_add(HyperDual u, HyperDual v) {
+HyperDual hd_add(HyperDual u, HyperDual v) {
     return (HyperDual){ u.r + v.r,
                          u.e_1 + v.e_1,
                          u.e_2 + v.e_2,
                          u.e_1_2 + v.e_1_2 };
 }
 
-static HyperDual hd_sub(HyperDual u, HyperDual v) {
+HyperDual hd_sub(HyperDual u, HyperDual v) {
     return (HyperDual){ u.r - v.r,
                          u.e_1 - v.e_1,
                          u.e_2 - v.e_2,
                          u.e_1_2 - v.e_1_2 };
 }
 
-static HyperDual hd_neg(HyperDual u) {
+HyperDual hd_neg(HyperDual u) {
     return (HyperDual){ -u.r, -u.e_1, -u.e_2, -u.e_1_2 };
 }
 
-static HyperDual hd_mul(HyperDual u, HyperDual v) {
+HyperDual hd_mul(HyperDual u, HyperDual v) {
     return (HyperDual){
         u.r  * v.r,
         u.e_1 * v.r  + u.r * v.e_1,
@@ -36,7 +36,7 @@ static HyperDual hd_mul(HyperDual u, HyperDual v) {
     };
 }
 
-static HyperDual hd_inv(HyperDual v) {
+HyperDual hd_inv(HyperDual v) {
     double a  = v.r;
     double a2 = a * a;
     double a3 = a2 * a;
@@ -48,9 +48,9 @@ static HyperDual hd_inv(HyperDual v) {
     };
 }
 
-static HyperDual hd_div(HyperDual u, HyperDual v) { return hd_mul(u, hd_inv(v)); }
+HyperDual hd_div(HyperDual u, HyperDual v) { return hd_mul(u, hd_inv(v)); }
 
-static HyperDual hd_sin(HyperDual u) {
+HyperDual hd_sin(HyperDual u) {
     double s = sin(u.r), c = cos(u.r);
     return (HyperDual){
         s,
@@ -60,7 +60,7 @@ static HyperDual hd_sin(HyperDual u) {
     };
 }
 
-static HyperDual hd_cos(HyperDual u) {
+HyperDual hd_cos(HyperDual u) {
     double s = sin(u.r), c = cos(u.r);
     return (HyperDual){
         c,
@@ -70,7 +70,7 @@ static HyperDual hd_cos(HyperDual u) {
     };
 }
 
-static HyperDual hd_exp(HyperDual u) {
+HyperDual hd_exp(HyperDual u) {
     double e = exp(u.r);
     return (HyperDual){
         e,
@@ -80,7 +80,7 @@ static HyperDual hd_exp(HyperDual u) {
     };
 }
 
-static HyperDual hd_log(HyperDual u) {
+HyperDual hd_log(HyperDual u) {
     double a  = u.r;
     double a2 = a * a;
     return (HyperDual){
@@ -91,7 +91,7 @@ static HyperDual hd_log(HyperDual u) {
     };
 }
 
-static HyperDual hd_pow(HyperDual u, double n) {
+HyperDual hd_pow(HyperDual u, double n) {
     double a = u.r;
     
     // Cas spécial : base nulle
@@ -111,7 +111,7 @@ static HyperDual hd_pow(HyperDual u, double n) {
         n * a_n_1 * u.e_1_2 + n * (n - 1.0) * pow(a, n - 2.0) * u.e_1 * u.e_2
     };
 }
-static HyperDual hd_tan(HyperDual u) {
+HyperDual hd_tan(HyperDual u) {
     double t  = tan(u.r);
     double sec2 = 1.0 + t * t; // sec²(x) = 1 + tan²(x)
     return (HyperDual){
@@ -122,7 +122,7 @@ static HyperDual hd_tan(HyperDual u) {
     };
 }
 
-static HyperDual hd_asin(HyperDual u) {
+HyperDual hd_asin(HyperDual u) {
     double d  = sqrt(1.0 - u.r * u.r);
     double d3 = d * d * d;
     return (HyperDual){
@@ -133,7 +133,7 @@ static HyperDual hd_asin(HyperDual u) {
     };
 }
 
-static HyperDual hd_acos(HyperDual u) {
+HyperDual hd_acos(HyperDual u) {
     double d  = sqrt(1.0 - u.r * u.r);
     double d3 = d * d * d;
     return (HyperDual){
@@ -144,7 +144,7 @@ static HyperDual hd_acos(HyperDual u) {
     };
 }
 
-static HyperDual hd_atan(HyperDual u) {
+HyperDual hd_atan(HyperDual u) {
     double d  = 1.0 + u.r * u.r;
     return (HyperDual){
         atan(u.r),
@@ -154,7 +154,7 @@ static HyperDual hd_atan(HyperDual u) {
     };
 }
 
-static HyperDual hd_sqrt(HyperDual u) {
+HyperDual hd_sqrt(HyperDual u) {
     double s  = sqrt(u.r);
     double s3 = s * s * s; // Pour la dérivée seconde
     return (HyperDual){
@@ -165,7 +165,7 @@ static HyperDual hd_sqrt(HyperDual u) {
     };
 }
 
-static HyperDual hd_abs(HyperDual u) {
+HyperDual hd_abs(HyperDual u) {
     // Dérivée non définie en 0, on utilise le signe
     double sgn = (u.r > 0) ? 1.0 : (u.r < 0) ? -1.0 : 0.0;
     return (HyperDual){
@@ -176,7 +176,7 @@ static HyperDual hd_abs(HyperDual u) {
     };
 }
 
-static HyperDual hd_sinh(HyperDual u) {
+HyperDual hd_sinh(HyperDual u) {
     double sh = sinh(u.r), ch = cosh(u.r);
     return (HyperDual){
         sh,
@@ -186,7 +186,7 @@ static HyperDual hd_sinh(HyperDual u) {
     };
 }
 
-static HyperDual hd_cosh(HyperDual u) {
+HyperDual hd_cosh(HyperDual u) {
     double sh = sinh(u.r), ch = cosh(u.r);
     return (HyperDual){
         ch,
@@ -196,7 +196,7 @@ static HyperDual hd_cosh(HyperDual u) {
     };
 }
 
-static HyperDual hd_tanh(HyperDual u) {
+HyperDual hd_tanh(HyperDual u) {
     double t   = tanh(u.r);
     double sech2 = 1.0 - t * t;
     return (HyperDual){

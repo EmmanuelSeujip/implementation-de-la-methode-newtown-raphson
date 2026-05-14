@@ -2,7 +2,12 @@
 #include <stdlib.h>
 #include "utils/type/fonction.h"
 #include "utils/type/intervalle.h"
-#include "blackbox/methods/newton.h"
+#include "blackbox/methods/newton/newton.h"
+#include "parse/function/parser.tab.h"
+#include "parse/intervalle/parser_intervalle.tab.h"
+#include "blackbox/method/newton/newton.h"
+#include  "utils/tree/tree.h"
+#include <math.h>
 
 int main() {
     int finished = 0;

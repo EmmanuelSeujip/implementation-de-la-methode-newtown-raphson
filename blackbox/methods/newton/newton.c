@@ -1,7 +1,7 @@
 #include <math.h>
 #include <stdio.h>
-#include "../../utils/type/simple.h"
-#include "../calcul_dual/calcul.h"
+#include "newton.h"
+#include "../../calcul/calcul_dual/calcul.h"
 
 double newton(Fonction f, Intervalle I, double epsilon) {
     HyperDual p_a = calcul(f, I.a);

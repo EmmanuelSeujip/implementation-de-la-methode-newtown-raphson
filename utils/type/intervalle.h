@@ -1,5 +1,5 @@
-#ifndef INTERVAL_H
-#define INTERVAL_H
+#ifndef INTERVALLE_H
+#define INTERVALLE_H
 
 typedef struct Intervalle {
     double a;
