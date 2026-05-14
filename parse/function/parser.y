@@ -1,5 +1,5 @@
 %{
-    #include "../../utils/tree/tree.h"
+    #include "utils/tree/tree.h"
     #include <stdio.h>
     #include <stdlib.h>
 

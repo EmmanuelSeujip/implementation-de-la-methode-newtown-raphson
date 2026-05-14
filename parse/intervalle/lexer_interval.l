@@ -1,5 +1,5 @@
 %{
-#include "../../utils/type/intervalle.h"
+#include "utils/type/intervalle.h"
 #include "parser_interval.tab.h"
 #include <stdlib.h>
 %}

@@ -1,4 +1,5 @@
 #include "evaluer.h"
+#include <math.h>
 
 double evaluer(const Fonction a, double x) {
     if (!a) return 0.0; 
