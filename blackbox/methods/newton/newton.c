@@ -1,12 +1,7 @@
-#ifndef NEWTON_H
-#define NEWTON_H
-
 #include <math.h>
 #include <stdio.h>
-#include "../../utils/type/simple.h"
-#include "../../utils/type/fonction.h"
-#include "../../utils/type/intervalle.h"
-#include "../calcul/calcul.h"
+#include "newton.h"
+#include "../../calcul/calcul_dual/calcul.h"
 
 double newton(Fonction f, Intervalle I, double epsilon) {
     HyperDual p_a = calcul(f, I.a);
@@ -66,4 +61,3 @@ double newton(Fonction f, Intervalle I, double epsilon) {
     return x_curr;
 }
 
-#endif

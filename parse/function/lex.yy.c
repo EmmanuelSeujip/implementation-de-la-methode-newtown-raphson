@@ -1,5 +1,6 @@
+#line 2 "parse/function/lex.yy.c"
 
-#line 3 "lex.yy.c"
+#line 4 "parse/function/lex.yy.c"
 
 #define  YY_INT_ALIGNED short int
 
@@ -473,14 +474,14 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "lexer.l"
-#line 2 "lexer.l"
-#include "../../utils/type/fonction.h"
+#line 1 "parse/function/lexer.l"
+#line 2 "parse/function/lexer.l"
+#include "utils/type/fonction.h"
 #include "parser.tab.h"
 #include <stdlib.h>
 #include <string.h>
-#line 483 "lex.yy.c"
-#line 484 "lex.yy.c"
+#line 484 "parse/function/lex.yy.c"
+#line 485 "parse/function/lex.yy.c"
 
 #define INITIAL 0
 
@@ -697,9 +698,9 @@ YY_DECL
 		}
 
 	{
-#line 8 "lexer.l"
+#line 8 "parse/function/lexer.l"
 
-#line 703 "lex.yy.c"
+#line 704 "parse/function/lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -758,122 +759,122 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 9 "lexer.l"
+#line 9 "parse/function/lexer.l"
 { return ADD; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 10 "lexer.l"
+#line 10 "parse/function/lexer.l"
 { return SUB; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 11 "lexer.l"
+#line 11 "parse/function/lexer.l"
 { return MUL; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 12 "lexer.l"
+#line 12 "parse/function/lexer.l"
 { return DIV; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 13 "lexer.l"
+#line 13 "parse/function/lexer.l"
 { return PUIS; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 14 "lexer.l"
+#line 14 "parse/function/lexer.l"
 { return EXP; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 15 "lexer.l"
+#line 15 "parse/function/lexer.l"
 { return LN; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 16 "lexer.l"
+#line 16 "parse/function/lexer.l"
 { return SIN; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 17 "lexer.l"
+#line 17 "parse/function/lexer.l"
 { return COS; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 18 "lexer.l"
+#line 18 "parse/function/lexer.l"
 { return X; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 19 "lexer.l"
+#line 19 "parse/function/lexer.l"
 { return '('; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 20 "lexer.l"
+#line 20 "parse/function/lexer.l"
 { return ')'; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 21 "lexer.l"
+#line 21 "parse/function/lexer.l"
 { return TAN;  }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 22 "lexer.l"
+#line 22 "parse/function/lexer.l"
 { return ASIN; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 23 "lexer.l"
+#line 23 "parse/function/lexer.l"
 { return ACOS; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 24 "lexer.l"
+#line 24 "parse/function/lexer.l"
 { return ATAN; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 25 "lexer.l"
+#line 25 "parse/function/lexer.l"
 { return SQRT; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 26 "lexer.l"
+#line 26 "parse/function/lexer.l"
 { return ABS;  }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 27 "lexer.l"
+#line 27 "parse/function/lexer.l"
 { return SINH; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 28 "lexer.l"
+#line 28 "parse/function/lexer.l"
 { return COSH; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 29 "lexer.l"
+#line 29 "parse/function/lexer.l"
 { return TANH; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 30 "lexer.l"
+#line 30 "parse/function/lexer.l"
 { yylval.doubleval = 3.14159265358979323846; return NUMBER; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 31 "lexer.l"
+#line 31 "parse/function/lexer.l"
 { yylval.doubleval = 2.71828182845904523536; return NUMBER; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 32 "lexer.l"
+#line 32 "parse/function/lexer.l"
 {
     yylval.doubleval = atof(yytext); // Ou atof pour gérer les décimales directement !
     return NUMBER;
@@ -881,7 +882,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 37 "lexer.l"
+#line 37 "parse/function/lexer.l"
 {
     int num, den;
     sscanf(yytext, "%d/%d", &num, &den);
@@ -897,15 +898,15 @@ YY_RULE_SETUP
 case 26:
 /* rule 26 can match eol */
 YY_RULE_SETUP
-#line 49 "lexer.l"
+#line 49 "parse/function/lexer.l"
 ; /* Ignorer tous les espaces et retours à la ligne */
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 51 "lexer.l"
+#line 51 "parse/function/lexer.l"
 ECHO;
 	YY_BREAK
-#line 909 "lex.yy.c"
+#line 910 "parse/function/lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1910,6 +1911,6 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 51 "lexer.l"
+#line 51 "parse/function/lexer.l"
 
 int yywrap() { return 1; }

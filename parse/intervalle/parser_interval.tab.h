@@ -35,8 +35,8 @@
    especially those whose name start with YY_ or yy_.  They are
    private implementation details that can be changed or removed.  */
 
-#ifndef YY_INTERVAL_PARSER_INTERVAL_TAB_H_INCLUDED
-# define YY_INTERVAL_PARSER_INTERVAL_TAB_H_INCLUDED
+#ifndef YY_INTERVAL_PARSE_INTERVALLE_PARSER_INTERVAL_TAB_H_INCLUDED
+# define YY_INTERVAL_PARSE_INTERVALLE_PARSER_INTERVAL_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef INTERVAL_DEBUG
 # if defined YYDEBUG
@@ -75,11 +75,11 @@ extern int interval_debug;
 #if ! defined INTERVAL_STYPE && ! defined INTERVAL_STYPE_IS_DECLARED
 union INTERVAL_STYPE
 {
-#line 22 "parser_interval.y"
+#line 22 "parse/intervalle/parser_interval.y"
 
     double doubleval;
 
-#line 83 "parser_interval.tab.h"
+#line 83 "parse/intervalle/parser_interval.tab.h"
 
 };
 typedef union INTERVAL_STYPE INTERVAL_STYPE;
@@ -94,4 +94,4 @@ extern INTERVAL_STYPE interval_lval;
 int interval_parse (void);
 
 
-#endif /* !YY_INTERVAL_PARSER_INTERVAL_TAB_H_INCLUDED  */
+#endif /* !YY_INTERVAL_PARSE_INTERVALLE_PARSER_INTERVAL_TAB_H_INCLUDED  */

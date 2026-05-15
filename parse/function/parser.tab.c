@@ -67,9 +67,9 @@
 
 
 /* First part of user prologue.  */
-#line 1 "parser.y"
+#line 1 "parse/function/parser.y"
 
-    #include "../../utils/type/fonction.h"
+    #include "utils/tree/tree.h"
     #include <stdio.h>
     #include <stdlib.h>
 
@@ -84,7 +84,7 @@
     extern YY_BUFFER_STATE yy_scan_string(const char *str);
     extern void yy_delete_buffer(YY_BUFFER_STATE buffer);
 
-#line 88 "parser.tab.c"
+#line 88 "parse/function/parser.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -1113,151 +1113,151 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* calc: expression  */
-#line 39 "parser.y"
+#line 39 "parse/function/parser.y"
                  { fonction_resultat = (yyvsp[0].noeud); }
-#line 1119 "parser.tab.c"
+#line 1119 "parse/function/parser.tab.c"
     break;
 
   case 3: /* expression: NUMBER  */
-#line 43 "parser.y"
+#line 43 "parse/function/parser.y"
                               { (yyval.noeud) = new_node(NODE_CONST, (double)(yyvsp[0].doubleval), NULL, NULL); }
-#line 1125 "parser.tab.c"
+#line 1125 "parse/function/parser.tab.c"
     break;
 
   case 4: /* expression: FRACTION  */
-#line 44 "parser.y"
+#line 44 "parse/function/parser.y"
                               { (yyval.noeud) = new_node(NODE_CONST, (yyvsp[0].val), NULL, NULL); }
-#line 1131 "parser.tab.c"
+#line 1131 "parse/function/parser.tab.c"
     break;
 
   case 5: /* expression: X  */
-#line 45 "parser.y"
+#line 45 "parse/function/parser.y"
                               { (yyval.noeud) = new_node(NODE_VAR, 0, NULL, NULL); }
-#line 1137 "parser.tab.c"
+#line 1137 "parse/function/parser.tab.c"
     break;
 
   case 6: /* expression: '(' expression ')'  */
-#line 46 "parser.y"
+#line 46 "parse/function/parser.y"
                               { (yyval.noeud) = (yyvsp[-1].noeud); }
-#line 1143 "parser.tab.c"
+#line 1143 "parse/function/parser.tab.c"
     break;
 
   case 7: /* expression: expression ADD expression  */
-#line 47 "parser.y"
+#line 47 "parse/function/parser.y"
                                 { (yyval.noeud) = new_node(NODE_ADD, 0, (yyvsp[-2].noeud), (yyvsp[0].noeud)); }
-#line 1149 "parser.tab.c"
+#line 1149 "parse/function/parser.tab.c"
     break;
 
   case 8: /* expression: expression SUB expression  */
-#line 48 "parser.y"
+#line 48 "parse/function/parser.y"
                                 { (yyval.noeud) = new_node(NODE_SUB, 0, (yyvsp[-2].noeud), (yyvsp[0].noeud)); }
-#line 1155 "parser.tab.c"
+#line 1155 "parse/function/parser.tab.c"
     break;
 
   case 9: /* expression: expression MUL expression  */
-#line 49 "parser.y"
+#line 49 "parse/function/parser.y"
                                 { (yyval.noeud) = new_node(NODE_MUL, 0, (yyvsp[-2].noeud), (yyvsp[0].noeud)); }
-#line 1161 "parser.tab.c"
+#line 1161 "parse/function/parser.tab.c"
     break;
 
   case 10: /* expression: expression DIV expression  */
-#line 50 "parser.y"
+#line 50 "parse/function/parser.y"
                                 { (yyval.noeud) = new_node(NODE_DIV, 0, (yyvsp[-2].noeud), (yyvsp[0].noeud)); }
-#line 1167 "parser.tab.c"
+#line 1167 "parse/function/parser.tab.c"
     break;
 
   case 11: /* expression: expression PUIS expression  */
-#line 51 "parser.y"
+#line 51 "parse/function/parser.y"
                                 { (yyval.noeud) = new_node(NODE_PUIS, 0, (yyvsp[-2].noeud), (yyvsp[0].noeud)); }
-#line 1173 "parser.tab.c"
+#line 1173 "parse/function/parser.tab.c"
     break;
 
   case 12: /* expression: function '(' expression ')'  */
-#line 52 "parser.y"
+#line 52 "parse/function/parser.y"
                                   { (yyvsp[-3].noeud)->gauche = (yyvsp[-1].noeud); (yyval.noeud) = (yyvsp[-3].noeud); }
-#line 1179 "parser.tab.c"
+#line 1179 "parse/function/parser.tab.c"
     break;
 
   case 13: /* function: SIN  */
-#line 56 "parser.y"
+#line 56 "parse/function/parser.y"
            { (yyval.noeud) = new_node(NODE_SIN,  0, NULL, NULL); }
-#line 1185 "parser.tab.c"
+#line 1185 "parse/function/parser.tab.c"
     break;
 
   case 14: /* function: COS  */
-#line 57 "parser.y"
+#line 57 "parse/function/parser.y"
            { (yyval.noeud) = new_node(NODE_COS,  0, NULL, NULL); }
-#line 1191 "parser.tab.c"
+#line 1191 "parse/function/parser.tab.c"
     break;
 
   case 15: /* function: LN  */
-#line 58 "parser.y"
+#line 58 "parse/function/parser.y"
            { (yyval.noeud) = new_node(NODE_LOG,  0, NULL, NULL); }
-#line 1197 "parser.tab.c"
+#line 1197 "parse/function/parser.tab.c"
     break;
 
   case 16: /* function: EXP  */
-#line 59 "parser.y"
+#line 59 "parse/function/parser.y"
            { (yyval.noeud) = new_node(NODE_EXP,  0, NULL, NULL); }
-#line 1203 "parser.tab.c"
+#line 1203 "parse/function/parser.tab.c"
     break;
 
   case 17: /* function: TAN  */
-#line 60 "parser.y"
+#line 60 "parse/function/parser.y"
            { (yyval.noeud) = new_node(NODE_TAN,  0, NULL, NULL); }
-#line 1209 "parser.tab.c"
+#line 1209 "parse/function/parser.tab.c"
     break;
 
   case 18: /* function: ASIN  */
-#line 61 "parser.y"
+#line 61 "parse/function/parser.y"
            { (yyval.noeud) = new_node(NODE_ASIN, 0, NULL, NULL); }
-#line 1215 "parser.tab.c"
+#line 1215 "parse/function/parser.tab.c"
     break;
 
   case 19: /* function: ACOS  */
-#line 62 "parser.y"
+#line 62 "parse/function/parser.y"
            { (yyval.noeud) = new_node(NODE_ACOS, 0, NULL, NULL); }
-#line 1221 "parser.tab.c"
+#line 1221 "parse/function/parser.tab.c"
     break;
 
   case 20: /* function: ATAN  */
-#line 63 "parser.y"
+#line 63 "parse/function/parser.y"
            { (yyval.noeud) = new_node(NODE_ATAN, 0, NULL, NULL); }
-#line 1227 "parser.tab.c"
+#line 1227 "parse/function/parser.tab.c"
     break;
 
   case 21: /* function: SQRT  */
-#line 64 "parser.y"
+#line 64 "parse/function/parser.y"
            { (yyval.noeud) = new_node(NODE_SQRT, 0, NULL, NULL); }
-#line 1233 "parser.tab.c"
+#line 1233 "parse/function/parser.tab.c"
     break;
 
   case 22: /* function: ABS  */
-#line 65 "parser.y"
+#line 65 "parse/function/parser.y"
            { (yyval.noeud) = new_node(NODE_ABS,  0, NULL, NULL); }
-#line 1239 "parser.tab.c"
+#line 1239 "parse/function/parser.tab.c"
     break;
 
   case 23: /* function: SINH  */
-#line 66 "parser.y"
+#line 66 "parse/function/parser.y"
            { (yyval.noeud) = new_node(NODE_SINH, 0, NULL, NULL); }
-#line 1245 "parser.tab.c"
+#line 1245 "parse/function/parser.tab.c"
     break;
 
   case 24: /* function: COSH  */
-#line 67 "parser.y"
+#line 67 "parse/function/parser.y"
            { (yyval.noeud) = new_node(NODE_COSH, 0, NULL, NULL); }
-#line 1251 "parser.tab.c"
+#line 1251 "parse/function/parser.tab.c"
     break;
 
   case 25: /* function: TANH  */
-#line 68 "parser.y"
+#line 68 "parse/function/parser.y"
            { (yyval.noeud) = new_node(NODE_TANH, 0, NULL, NULL); }
-#line 1257 "parser.tab.c"
+#line 1257 "parse/function/parser.tab.c"
     break;
 
 
-#line 1261 "parser.tab.c"
+#line 1261 "parse/function/parser.tab.c"
 
       default: break;
     }
@@ -1450,7 +1450,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 71 "parser.y"
+#line 71 "parse/function/parser.y"
 
 
 void yyerror(const char *s) {
@@ -1458,9 +1458,7 @@ void yyerror(const char *s) {
     fprintf(stderr, "Erreur de syntaxe : %s\n", s);
 }
 
-/* =========================================================
- * La fonction appelée par votre code mère
- * ========================================================= */
+
 Fonction parse_expression(const char* expr_str) {
     fonction_resultat = NULL; // Réinitialisation par sécurité
     

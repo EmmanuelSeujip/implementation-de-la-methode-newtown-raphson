@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include "utils/type/fonction.h"
 #include "utils/type/intervalle.h"
-#include "blackbox/methods/newton.h"
+#include "utils/tree/tree.h"
+#include "blackbox/methods/newton/newton.h"
 
 int main() {
     int finished = 0;

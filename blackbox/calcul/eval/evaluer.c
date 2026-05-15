@@ -1,27 +1,8 @@
-#include "../type/fonction.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include "evaluer.h"
 #include <math.h>
 
-/* --- Constructeur générique --- */
-Noeud* new_node(NodeType t, double v, Noeud* g, Noeud* d) {
-    Noeud* n = (Noeud*)malloc(sizeof(Noeud));
-    if (!n) { 
-        fprintf(stderr, "Erreur : Mémoire insuffisante\n"); 
-        exit(EXIT_FAILURE); 
-    }
-    n->type   = t;
-    n->valeur = v;
-    n->gauche = g;
-    n->droite = d;
-    return n;
-}
-
-
-
-/* --- Évaluateur --- */
 double evaluer(const Fonction a, double x) {
-    if (!a) return 0.0;
+    if (!a) return 0.0; 
     
     switch (a->type) {
         case NODE_CONST: return a->valeur;
@@ -48,12 +29,4 @@ double evaluer(const Fonction a, double x) {
         default: return 0.0;
 
     }
-}
-
-/* --- Libération mémoire --- */
-void free_tree(Fonction a) {
-    if (!a) return;
-    free_tree(a->gauche); // Appels récursifs pour libérer les enfants
-    free_tree(a->droite);
-    free(a);              // Libération du nœud parent
 }

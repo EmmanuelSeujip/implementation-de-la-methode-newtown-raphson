@@ -75,9 +75,9 @@
 #define yychar          interval_char
 
 /* First part of user prologue.  */
-#line 1 "parser_interval.y"
+#line 1 "parse/intervalle/parser_interval.y"
 
-    #include "../../utils/type/intervalle.h"
+    #include "utils/type/intervalle.h"
     #include <stdio.h>
     #include <stdlib.h>
 
@@ -93,7 +93,7 @@
     extern YY_BUFFER_STATE interval__scan_string(const char *str);
     extern void interval__delete_buffer(YY_BUFFER_STATE buffer);
 
-#line 97 "parser_interval.tab.c"
+#line 97 "parse/intervalle/parser_interval.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -519,7 +519,7 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    32,    32,    36,    37,    40
+       0,    32,    32,    38,    39,    42
 };
 #endif
 
@@ -1081,19 +1081,19 @@ yyreduce:
   switch (yyn)
     {
   case 3: /* nombre: NUMBER  */
-#line 36 "parser_interval.y"
+#line 38 "parse/intervalle/parser_interval.y"
                       { (yyval.doubleval) = (yyvsp[0].doubleval); }
-#line 1087 "parser_interval.tab.c"
+#line 1087 "parse/intervalle/parser_interval.tab.c"
     break;
 
   case 4: /* nombre: MINUS NUMBER  */
-#line 37 "parser_interval.y"
+#line 39 "parse/intervalle/parser_interval.y"
                       { (yyval.doubleval) = -(yyvsp[0].doubleval); }
-#line 1093 "parser_interval.tab.c"
+#line 1093 "parse/intervalle/parser_interval.tab.c"
     break;
 
   case 5: /* S: OPEN nombre COMA nombre CLOSE  */
-#line 41 "parser_interval.y"
+#line 43 "parse/intervalle/parser_interval.y"
     { 
         resultat_intervalle = (Intervalle*)malloc(sizeof(Intervalle));
         if (resultat_intervalle != NULL) {
@@ -1101,11 +1101,11 @@ yyreduce:
             resultat_intervalle->b = (yyvsp[-1].doubleval);
         }
     }
-#line 1105 "parser_interval.tab.c"
+#line 1105 "parse/intervalle/parser_interval.tab.c"
     break;
 
 
-#line 1109 "parser_interval.tab.c"
+#line 1109 "parse/intervalle/parser_interval.tab.c"
 
       default: break;
     }
@@ -1298,7 +1298,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 49 "parser_interval.y"
+#line 51 "parse/intervalle/parser_interval.y"
 
 
 void interval_error(const char *s) {

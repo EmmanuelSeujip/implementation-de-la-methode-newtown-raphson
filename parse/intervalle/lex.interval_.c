@@ -1,5 +1,6 @@
+#line 2 "parse/intervalle/lex.interval_.c"
 
-#line 3 "lex.interval_.c"
+#line 4 "parse/intervalle/lex.interval_.c"
 
 #define  YY_INT_ALIGNED short int
 
@@ -705,15 +706,15 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "lexer_interval.l"
-#line 2 "lexer_interval.l"
-#include "../../utils/type/intervalle.h"
+#line 1 "parse/intervalle/lexer_interval.l"
+#line 2 "parse/intervalle/lexer_interval.l"
+#include "utils/type/intervalle.h"
 #include "parser_interval.tab.h"
 #include <stdlib.h>
-#line 714 "lex.interval_.c"
+#line 715 "parse/intervalle/lex.interval_.c"
 /* Règle primordiale pour ne pas faire crasher les autres parseurs */
 /* Évite d'avoir à définir yywrap manuellement */
-#line 717 "lex.interval_.c"
+#line 718 "parse/intervalle/lex.interval_.c"
 
 #define INITIAL 0
 
@@ -930,9 +931,9 @@ YY_DECL
 		}
 
 	{
-#line 12 "lexer_interval.l"
+#line 12 "parse/intervalle/lexer_interval.l"
 
-#line 936 "lex.interval_.c"
+#line 937 "parse/intervalle/lex.interval_.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -991,27 +992,27 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 13 "lexer_interval.l"
+#line 13 "parse/intervalle/lexer_interval.l"
 { return OPEN; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 14 "lexer_interval.l"
+#line 14 "parse/intervalle/lexer_interval.l"
 { return CLOSE; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 15 "lexer_interval.l"
+#line 15 "parse/intervalle/lexer_interval.l"
 { return COMA; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 16 "lexer_interval.l"
+#line 16 "parse/intervalle/lexer_interval.l"
 { return MINUS; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 18 "lexer_interval.l"
+#line 18 "parse/intervalle/lexer_interval.l"
 {
     // Utilisation du préfixe interval_ pour l'union sémantique
     interval_lval.doubleval = atof(yytext); 
@@ -1021,20 +1022,20 @@ YY_RULE_SETUP
 case 6:
 /* rule 6 can match eol */
 YY_RULE_SETUP
-#line 24 "lexer_interval.l"
+#line 24 "parse/intervalle/lexer_interval.l"
 ; // Ignorer les espaces et retours à la ligne
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 26 "lexer_interval.l"
+#line 26 "parse/intervalle/lexer_interval.l"
 { return yytext[0]; } // Sécurité : renvoyer tout caractère inconnu
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 27 "lexer_interval.l"
+#line 27 "parse/intervalle/lexer_interval.l"
 ECHO;
 	YY_BREAK
-#line 1038 "lex.interval_.c"
+#line 1039 "parse/intervalle/lex.interval_.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2039,5 +2040,5 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 27 "lexer_interval.l"
+#line 27 "parse/intervalle/lexer_interval.l"
 

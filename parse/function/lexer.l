@@ -1,5 +1,5 @@
 %{
-#include "../../utils/type/fonction.h"
+#include "utils/type/fonction.h"
 #include "parser.tab.h"
 #include <stdlib.h>
 #include <string.h>

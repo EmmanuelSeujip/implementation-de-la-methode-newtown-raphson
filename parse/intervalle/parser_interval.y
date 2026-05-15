@@ -1,5 +1,5 @@
 %{
-    #include "../../utils/type/intervalle.h"
+    #include "utils/type/intervalle.h"
     #include <stdio.h>
     #include <stdlib.h>
 
