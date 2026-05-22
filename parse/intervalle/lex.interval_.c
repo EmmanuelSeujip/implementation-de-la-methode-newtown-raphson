@@ -1,6 +1,6 @@
-#line 2 "parse/intervalle/lex.interval_.c"
+#line 1 "parse/intervalle/lex.interval_.c"
 
-#line 4 "parse/intervalle/lex.interval_.c"
+#line 3 "parse/intervalle/lex.interval_.c"
 
 #define  YY_INT_ALIGNED short int
 
@@ -711,10 +711,10 @@ char *yytext;
 #include "utils/type/intervalle.h"
 #include "parser_interval.tab.h"
 #include <stdlib.h>
-#line 715 "parse/intervalle/lex.interval_.c"
+#line 714 "parse/intervalle/lex.interval_.c"
 /* Règle primordiale pour ne pas faire crasher les autres parseurs */
 /* Évite d'avoir à définir yywrap manuellement */
-#line 718 "parse/intervalle/lex.interval_.c"
+#line 717 "parse/intervalle/lex.interval_.c"
 
 #define INITIAL 0
 
@@ -933,7 +933,7 @@ YY_DECL
 	{
 #line 12 "parse/intervalle/lexer_interval.l"
 
-#line 937 "parse/intervalle/lex.interval_.c"
+#line 936 "parse/intervalle/lex.interval_.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -1035,7 +1035,7 @@ YY_RULE_SETUP
 #line 27 "parse/intervalle/lexer_interval.l"
 ECHO;
 	YY_BREAK
-#line 1039 "parse/intervalle/lex.interval_.c"
+#line 1038 "parse/intervalle/lex.interval_.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
