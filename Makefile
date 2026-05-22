@@ -22,7 +22,10 @@ CFLAGS = -Wall -g \
          -Iblackbox/calcul/eval \
          -Iblackbox/methods/newton \
          -Iblackbox/methods/trapeze \
-         -Iblackbox/methods/simpson
+         -Iblackbox/methods/simpson \
+         -Imenu/equation \
+         -Imenu/aide \
+         -Imenu/integrale
 LIBS   = -lm
 
 # ─── Fichiers générés par Bison et Flex ──────────────────────────────
@@ -40,6 +43,9 @@ SRCS = main.c \
        blackbox/methods/newton/newton.c \
        blackbox/methods/trapeze/trapeze.c \
        blackbox/methods/simpson/simpson.c \
+       menu/equation/equation.c \
+       menu/aide/aide.c \
+       menu/integrale/integrale.c \
        $(BISON_OUT_FUNC) \
        $(BISON_OUT_INTER) \
        $(FLEX_OUT_FUNC) \
