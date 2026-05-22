@@ -2,16 +2,16 @@
 #include "../../../utils/type/fonction.h"
 #include "../../../utils/type/intervalle.h"
 #include "../../../utils/tree/tree.h"
-#include "../../../calcul/eval/evaluer.h"
-#include "../../../calcul/Parser/parser.h"
+#include "../../../blackbox/calcul/eval/evaluer.h"
+
+#include <stdio.h>
 #include <string.h>
 
 void menu_integrale(){
     Fonction f;
-    Intervalle* interval;
+    Intervalle *interval;
     char input[256];
     char interval_input[256];
-    double epsilon = 1e-6; // Précision par défaut
     int n;
     double result;
     int choice;
@@ -30,10 +30,15 @@ void menu_integrale(){
                     break;
                 }
                 printf("Entrez l'intervalle\n");
-                interval = parse_interval(interval_input)
+                scanf("%s", interval_input);
+                interval = parse_interval(interval_input);
+                if (interval == NULL) {
+                    printf("Erreur : intervalle invalide\n");
+                    break;
+                }
                 printf("Entrez le nombre de subdivisions\n");
                 scanf("%d", &n);
-                result = simpson(f, interval, n);
+                result = simpson(f, *interval, n);
                 printf("Le resultat est : %lf\n", result);
                 break;
             case 2:
@@ -45,10 +50,15 @@ void menu_integrale(){
                     break;
                 }
                 printf("Entrez l'intervalle\n");
-                interval = parse_interval(interval_input)
+                scanf("%s", interval_input);
+                interval = parse_interval(interval_input);
+                if (interval == NULL) {
+                    printf("Erreur : intervalle invalide\n");
+                    break;
+                }
                 printf("Entrez le nombre de subdivisions\n");
                 scanf("%d", &n);
-                result = trapeze(f, interval, n);
+                result = trapeze(f, *interval, n);
                 printf("Le resultat est : %lf\n", result);
                 break;
             case 3:

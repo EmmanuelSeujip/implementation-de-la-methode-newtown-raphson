@@ -12,8 +12,8 @@ double simpson(Fonction f, Intervalle interval, int n) {
         printf("Error: n must be even for Simpson's rule\n");
         return NAN;
     }
-    double a = interval.min;
-    double b = interval.max;
+    double a = interval.a;
+    double b = interval.b;
     double h = (b - a) / n;
     double sum = evaluer(f,a) + evaluer(f,b);
     for (int i = 1; i < n; i += 2) {

@@ -1,5 +1,5 @@
 #include "aide.h"
-
+#include <stdio.h>
 void menu_aide() {
     printf("Aide:\n");
     printf("1. Résoudre une équation : Permet de trouver les racines de f(x)=0 en utilisant la méthode de Newton-Raphson.\n");

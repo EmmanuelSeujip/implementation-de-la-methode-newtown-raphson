@@ -1,6 +1,12 @@
 #include "equation.h"
-
-void equation() {
+#include "../../utils/tree/tree.h"
+#include "../../utils/type/fonction.h"
+#include "../../utils/type/intervalle.h"
+#include "../../blackbox/methods/newton/newton.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+void menu_equation() {
     printf("Résolution de l'équation f(x)=0...\n");
     printf("Entrez une fonction f(x) (ex: sin(x) + 2*x^2 - 5) : ");
     char input[256];

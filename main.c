@@ -6,6 +6,8 @@
 #include "utils/tree/tree.h"
 #include "blackbox/methods/newton/newton.h"
 #include "menu/equation/equation.h"
+#include "menu/aide/aide.h"
+#include "menu/integrale/integrale.h"
 int main() {
     int finished = 0;
     double epsilon = 1e-6; // Précision par défaut
@@ -21,17 +23,13 @@ int main() {
         scanf("%d", &choice);
         if (choice == 1) {
             // Appeler la fonction pour résoudre une équation
-            equation();
+            menu_equation();
         } else if (choice == 2) {
             // Afficher l'aide
-            printf("Aide :\n");
-            printf("1. Résoudre une équation : Permet de trouver les racines de f(x)=0 en utilisant la méthode de Newton-Raphson.\n");
-            printf("2. Déterminer l'intégrale d'une fonction de la forme f(x) : Permet de trouver l'intégrale d'une fonction de la forme f(x) en utilisant la méthode de Simpson.\n");
-            printf("3. Aide : Affiche ce message d'aide.\n");
-            printf("4. Quitter : Termine le programme.\n");
-            printf("Vous pouvez entrer une équation sous la forme f(x)=0, et le programme vous guidera à travers les étapes de la méthode de Newton-Raphson pour trouver les solutions.\n");
-            printf("Les fonctions valides sont les polynomes, les fonctions cosinus et sinus, exponentielles, logarithmiques, etc. Assurez-vous d'utiliser une syntaxe correcte pour les fonctions et les opérateurs.\n");
+            menu_integrale();
         } else if (choice == 3) {
+            menu_aide();
+        } else if (choice == 4) {
             finished = 1; // Terminer le programme
         } else {
             printf("Choix invalide, veuillez réessayer.\n");
