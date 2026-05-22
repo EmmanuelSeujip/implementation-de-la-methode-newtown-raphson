@@ -3,8 +3,11 @@
 void equation() {
     printf("Résolution de l'équation f(x)=0...\n");
     printf("Entrez une fonction f(x) (ex: sin(x) + 2*x^2 - 5) : ");
+    char input[256];
     scanf(" %[^\n]", input); // Lire une ligne complète
-    Fonction f = parse_expression(input);
+    Fonction f = parse_expression(input); 
+    char interval_input[256];
+    double epsilon = 1e-6; // Précision par défaut
     if (f) {                         
         printf("Entrez un intervalle pour la recherche de racines (ex: [0, 10]) : ");
         scanf(" %[^\n]", interval_input); // Lire une ligne complète pour l'intervalle

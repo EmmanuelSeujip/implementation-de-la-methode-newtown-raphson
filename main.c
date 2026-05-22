@@ -8,8 +8,6 @@
 #include "menu/equation/equation.h"
 int main() {
     int finished = 0;
-    char input[256];
-    char interval_input[256];
     double epsilon = 1e-6; // Précision par défaut
     while (!finished) {
         printf("================= Calcul de f(x)=0 par la méthode de Newton-Raphson =================\n");
