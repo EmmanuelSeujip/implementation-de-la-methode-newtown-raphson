@@ -1,15 +1,20 @@
-# ─── Détection OS ────────────────────────────────────────────────────
+# Détection OS
 ifeq ($(OS),Windows_NT)
-    TARGET  = mon_evaluateur.exe
+    TARGET  = main[windows].exe
     RM      = del /f /q
     FIXPATH = $(subst /,\,$1)
 else
-    TARGET  = mon_evaluateur
+    UNAME := $(shell uname -s)
+    ifeq ($(UNAME),Darwin)
+        TARGET = main[macos]
+    else
+        TARGET = main[linux]
+    endif
     RM      = rm -f
     FIXPATH = $1
 endif
 
-# ─── Compilateur et flags ─────────────────────────────────────────────
+# Compilateur et flags
 CC     = gcc
 CFLAGS = -Wall -g \
          -I. \
@@ -57,7 +62,7 @@ OBJS = $(SRCS:.c=.o)
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CC) $(OBJS) -o $@ $(LIBS)
+	$(CC) $(OBJS) -o "$(TARGET)" $(LIBS)
 
 # ─── Génération Bison ─────────────────────────────────────────────────
 parse/function/parser.tab.c parse/function/parser.tab.h: parse/function/parser.y
@@ -81,7 +86,7 @@ parse/intervalle/lex.interval_.c: parse/intervalle/lexer_interval.l parse/interv
 clean:
 	$(RM) $(call FIXPATH, \
 	    $(OBJS) \
-	    $(TARGET) \
+	    "$(TARGET)" \
 	    parse/function/parser.tab.c \
 	    parse/function/parser.tab.h \
 	    parse/function/lex.yy.c \
