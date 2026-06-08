@@ -22,12 +22,12 @@ CFLAGS = -Wall -g \
          -Iutils/tree \
          -Iparse/function \
          -Iparse/intervalle \
-         -Iblackbox/calcul/calcul_dual \
-         -Iblackbox/calcul/dual \
-         -Iblackbox/calcul/eval \
-         -Iblackbox/methods/newton \
-         -Iblackbox/methods/trapeze \
-         -Iblackbox/methods/simpson \
+         -Isolver/calcul/calcul_dual \
+         -Isolver/calcul/dual \
+         -Isolver/calcul/eval \
+         -Isolver/methods/newton \
+         -Isolver/methods/trapeze \
+         -Isolver/methods/simpson \
          -Imenu/equation \
          -Imenu/aide \
          -Imenu/integrale
@@ -42,12 +42,12 @@ FLEX_OUT_INTER  = parse/intervalle/lex.interval_.c
 # ─── Sources ──────────────────────────────────────────────────────────
 SRCS = main.c \
        utils/tree/tree.c \
-       blackbox/calcul/calcul_dual/calcul.c \
-       blackbox/calcul/dual/dual.c \
-       blackbox/calcul/eval/evaluer.c \
-       blackbox/methods/newton/newton.c \
-       blackbox/methods/trapeze/trapeze.c \
-       blackbox/methods/simpson/simpson.c \
+       solver/calcul/calcul_dual/calcul.c \
+       solver/calcul/dual/dual.c \
+       solver/calcul/eval/evaluer.c \
+       solver/methods/newton/newton.c \
+       solver/methods/trapeze/trapeze.c \
+       solver/methods/simpson/simpson.c \
        menu/equation/equation.c \
        menu/aide/aide.c \
        menu/integrale/integrale.c \

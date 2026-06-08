@@ -4,7 +4,7 @@
 #include "utils/type/fonction.h"
 #include "utils/type/intervalle.h"
 #include "utils/tree/tree.h"
-#include "blackbox/methods/newton/newton.h"
+#include "solver/methods/newton/newton.h"
 #include "menu/equation/equation.h"
 #include "menu/aide/aide.h"
 #include "menu/integrale/integrale.h"

@@ -2,7 +2,7 @@
 #include "../../utils/tree/tree.h"
 #include "../../utils/type/fonction.h"
 #include "../../utils/type/intervalle.h"
-#include "../../blackbox/methods/newton/newton.h"
+#include "../../solver/methods/newton/newton.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
