@@ -22,41 +22,41 @@ void menu_integrale(){
         scanf("%d", &choice);
         switch(choice){
             case 1:
-                printf("Entrez la fonction\n");
+                printf("Entrez une fonction (ex: sin(x) + 2*x^2 - 5) : ");
                 scanf("%s", input);
                 f = parse_expression(input);
                 if (f == NULL) {
                     printf("Erreur : expression invalide\n");
                     break;
                 }
-                printf("Entrez l'intervalle\n");
+                printf("Entrez un intervalle (ex: [0, 10]) :");
                 scanf("%s", interval_input);
                 interval = parse_interval(interval_input);
                 if (interval == NULL) {
                     printf("Erreur : intervalle invalide\n");
                     break;
                 }
-                printf("Entrez le nombre de subdivisions\n");
+                printf("Entrez le nombre de subdivisions :");
                 scanf("%d", &n);
                 result = simpson(f, *interval, n);
                 printf("Le resultat est : %lf\n", result);
                 break;
             case 2:
-                printf("Entrez la fonction\n");
+                printf("Entrez une fonction (ex: sin(x) + 2*x^2 - 5) : ");
                 scanf("%s", input);
                 f = parse_expression(input);
                 if (f == NULL) {
                     printf("Erreur : expression invalide\n");
                     break;
                 }
-                printf("Entrez l'intervalle\n");
+                printf("Entrez un intervalle (ex: [0, 10]) :");
                 scanf("%s", interval_input);
                 interval = parse_interval(interval_input);
                 if (interval == NULL) {
                     printf("Erreur : intervalle invalide\n");
                     break;
                 }
-                printf("Entrez le nombre de subdivisions\n");
+                printf("Entrez le nombre de subdivisions :");
                 scanf("%d", &n);
                 result = trapeze(f, *interval, n);
                 printf("Le resultat est : %lf\n", result);

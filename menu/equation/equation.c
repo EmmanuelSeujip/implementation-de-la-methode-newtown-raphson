@@ -8,7 +8,7 @@
 #include <math.h>
 void menu_equation() {
     printf("Résolution de l'équation f(x)=0...\n");
-    printf("Entrez une fonction f(x) (ex: sin(x) + 2*x^2 - 5) : ");
+    printf("Entrez une fonction (ex: sin(x) + 2*x^2 - 5) : ");
     char input[256];
     scanf(" %[^\n]", input); // Lire une ligne complète
     Fonction f = parse_expression(input); 
