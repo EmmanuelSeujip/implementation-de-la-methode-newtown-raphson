@@ -1,14 +1,14 @@
 # Détection OS
 ifeq ($(OS),Windows_NT)
-    TARGET  = main[windows].exe
+    TARGET  = main_windows.exe
     RM      = del /f /q
     FIXPATH = $(subst /,\,$1)
 else
     UNAME := $(shell uname -s)
     ifeq ($(UNAME),Darwin)
-        TARGET = main[macos]
+        TARGET = main_macos
     else
-        TARGET = main[linux]
+        TARGET = main_linux
     endif
     RM      = rm -f
     FIXPATH = $1

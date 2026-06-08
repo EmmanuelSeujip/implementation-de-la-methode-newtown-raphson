@@ -78,18 +78,18 @@ jobs:
         uses: actions/upload-artifact@v4.6.2
         with:
           name: binaire-linux
-          path: "main[linux]"
+          path: "main_linux"
 
       - name: Upload binaire macOS
         if: runner.os == 'macOS'
         uses: actions/upload-artifact@v4.6.2
         with:
           name: binaire-macos
-          path: "main[macos]"
+          path: "main_macos"
 
       - name: Upload binaire Windows
         if: runner.os == 'Windows'
         uses: actions/upload-artifact@v4.6.2
         with:
           name: binaire-windows
-          path: "main[windows].exe"
+          path: "main_windows.exe"
