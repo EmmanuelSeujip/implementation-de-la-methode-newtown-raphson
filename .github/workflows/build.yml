@@ -54,8 +54,8 @@ jobs:
           msystem: MINGW64
           install: >-
             mingw-w64-x86_64-gcc
-            mingw-w64-x86_64-bison
-            mingw-w64-x86_64-flex
+            bison
+            flex
             make
 
       # ─── Compilation ─────────────────────────────────────────────────
