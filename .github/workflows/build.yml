@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ main, master ]
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     strategy:
@@ -15,7 +18,7 @@ jobs:
 
     steps:
       - name: Récupérer le code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
 
       # ─── Linux ───────────────────────────────────────────────────────
       - name: Installer dépendances (Linux)
@@ -23,8 +26,6 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y flex
-
-          # Forcer Bison 3.8.2
           wget https://ftp.gnu.org/gnu/bison/bison-3.8.2.tar.gz
           tar -xzf bison-3.8.2.tar.gz
           cd bison-3.8.2
@@ -32,7 +33,6 @@ jobs:
           make -j$(nproc)
           sudo make install
           cd ..
-
           bison --version
           flex --version
 
@@ -61,31 +61,35 @@ jobs:
       # ─── Compilation ─────────────────────────────────────────────────
       - name: Compiler (Linux / macOS)
         if: runner.os != 'Windows'
-        run: make
+        run: |
+          make
+          ls -la
 
       - name: Compiler (Windows)
         if: runner.os == 'Windows'
         shell: msys2 {0}
-        run: make
+        run: |
+          make
+          ls -la
 
       # ─── Upload des binaires ──────────────────────────────────────────
       - name: Upload binaire Linux
         if: runner.os == 'Linux'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: binaire-linux
-          path: "main(linux)"
+          path: "main[linux]"
 
       - name: Upload binaire macOS
         if: runner.os == 'macOS'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: binaire-macos
-          path: "main(macos)"
+          path: "main[macos]"
 
       - name: Upload binaire Windows
         if: runner.os == 'Windows'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: binaire-windows
-          path: "main(windows).exe"
+          path: "main[windows].exe"
