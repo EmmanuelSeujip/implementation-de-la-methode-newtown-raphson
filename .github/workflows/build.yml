@@ -1,0 +1,95 @@
+name: Build multi-OS
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4.2.2
+
+      # ─── Linux ───────────────────────────────────────────────────────
+      - name: Installer dépendances (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y flex
+          wget https://ftp.gnu.org/gnu/bison/bison-3.8.2.tar.gz
+          tar -xzf bison-3.8.2.tar.gz
+          cd bison-3.8.2
+          ./configure
+          make -j$(nproc)
+          sudo make install
+          cd ..
+          bison --version
+          flex --version
+
+      # ─── macOS ───────────────────────────────────────────────────────
+      - name: Installer dépendances (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          brew install bison flex
+          echo "/opt/homebrew/opt/bison/bin" >> $GITHUB_PATH
+          echo "/opt/homebrew/opt/flex/bin" >> $GITHUB_PATH
+          bison --version
+          flex --version
+
+      # ─── Windows ─────────────────────────────────────────────────────
+      - name: Installer dépendances (Windows)
+        if: runner.os == 'Windows'
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW64
+          install: >-
+            mingw-w64-x86_64-gcc
+            bison
+            flex
+            make
+
+      # ─── Compilation ─────────────────────────────────────────────────
+      - name: Compiler (Linux / macOS)
+        if: runner.os != 'Windows'
+        run: |
+          make
+          ls -la
+
+      - name: Compiler (Windows)
+        if: runner.os == 'Windows'
+        shell: msys2 {0}
+        run: |
+          make
+          ls -la
+
+      # ─── Upload des binaires ──────────────────────────────────────────
+      - name: Upload binaire Linux
+        if: runner.os == 'Linux'
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: binaire-linux
+          path: "main_linux"
+
+      - name: Upload binaire macOS
+        if: runner.os == 'macOS'
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: binaire-macos
+          path: "main_macos"
+
+      - name: Upload binaire Windows
+        if: runner.os == 'Windows'
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: binaire-windows
+          path: "main_windows.exe"
