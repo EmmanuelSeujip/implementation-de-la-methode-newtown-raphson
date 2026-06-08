@@ -17,7 +17,7 @@
 %}
 
 /* Règle primordiale pour Bison */
-%define api.prefix {interval_}
+%name-prefix "interval_"
 
 %union {
     double doubleval;
